@@ -1,6 +1,6 @@
 # Book Store
 
-Nền tảng web fullstack để quản lý mua bán sách, tập trung vào quy trình vận hành bán sách và đặt hàng trên nền tảng web. Phạm vi ban đầu chưa tích hợp hệ thống thanh toán bên ngoài; các thành phần thanh toán sẽ được bổ sung trong giai đoạn brainstorm và thiết kế tiếp theo.
+Nền tảng web fullstack cho doanh nghiệp phân phối sách, gồm storefront cho khách hàng và khu vực quản trị cho chủ cửa hàng. MVP hỗ trợ catalog, giỏ hàng, đặt hàng và xử lý đơn; khách hàng cần đăng nhập trước khi đặt hàng. Thanh toán hỗ trợ lựa chọn COD và trả trước, còn provider trả trước sẽ được chọn ở giai đoạn sau.
 
 ## Tech stack
 
@@ -11,10 +11,12 @@ Nền tảng web fullstack để quản lý mua bán sách, tập trung vào quy
 
 ## Mục tiêu dự án
 
-- Xây dựng hệ thống quản lý sách, danh mục và thông tin tồn kho.
+- Xây dựng hệ thống quản lý sách và danh mục.
 - Hỗ trợ khách hàng khám phá, tìm kiếm và đặt mua sách.
-- Hỗ trợ quản trị viên quản lý sản phẩm, đơn hàng và hoạt động kinh doanh.
-- Tạo kiến trúc đủ rõ ràng để mở rộng chức năng thanh toán, giao vận và các hệ thống ngoài sau này.
+- Hỗ trợ admin/chủ cửa hàng quản lý catalog và xử lý đơn hàng.
+- Tạo nền tảng có thể mở rộng thanh toán, tồn kho và giao vận sau này.
+
+MVP chưa quản lý tồn kho tự động. Admin xác nhận khả năng cung ứng thủ công khi xử lý đơn.
 
 ## Quy trình phát triển
 
@@ -24,32 +26,41 @@ Nền tảng web fullstack để quản lý mua bán sách, tập trung vào quy
 4. Xây dựng backend và frontend theo từng module.
 5. Chuẩn bị môi trường deployment và cấu hình production.
 
-## Actor dự kiến
+## Actor trong MVP
 
-Các actor cụ thể cần được xác nhận thêm trong giai đoạn brainstorm, nhưng có thể bắt đầu với:
+- Guest: duyệt catalog.
+- Customer: đăng ký/đăng nhập, quản lý thông tin giao hàng, đặt và theo dõi đơn hàng.
+- Admin/chủ cửa hàng: quản lý sách/danh mục và cập nhật trạng thái đơn hàng.
 
-- Khách hàng: xem và mua sách, quản lý tài khoản và đơn hàng của mình.
-- Quản trị viên: quản lý danh mục sách, tồn kho, đơn hàng và dữ liệu vận hành.
-- Nhân viên vận hành: xử lý đơn hàng và cập nhật trạng thái giao hàng khi nghiệp vụ được xác định.
-
-Thanh toán bên ngoài, cổng thanh toán và các bên liên quan không thuộc phạm vi thiết kế chi tiết ở phiên bản hiện tại.
+Chưa tách role nhân viên; đơn vị vận chuyển chưa có tài khoản hoặc tích hợp trực tiếp.
 
 ## Cấu trúc dự kiến
 
 ```text
 .
-├── client/                 # ReactJS application
-├── server/                 # ExpressJS API
+├── FE/                     # Frontend design and, later, ReactJS source
+├── BE/                     # Backend design and, later, ExpressJS source
 ├── README.md
-└── SystemDesign.md
+├── SystemDesign.md
+└── ...                     # Domain/API/security/deployment documents
 ```
 
 Cấu trúc thư mục thực tế có thể thay đổi sau khi xác định quy mô và công cụ phát triển.
 
 ## Trạng thái hiện tại
 
-Đây là giai đoạn định hình phạm vi dự án. Các quyết định về domain model, vai trò, API, quy trình đơn hàng và thanh toán sẽ được bổ sung vào tài liệu thiết kế hệ thống trước khi triển khai.
+Đây là giai đoạn thiết kế trước khi khởi tạo ứng dụng. Các tài liệu bên dưới là baseline cần được rà soát trước khi triển khai và mở bán thật.
 
-## Tài liệu thiết kế
+## Tài liệu
 
-Xem [SystemDesign.md](SystemDesign.md) để tham khảo khung kiến trúc tạm thời và các điểm cần brainstorm tiếp.
+- [System Design](SystemDesign.md): phạm vi MVP, kiến trúc và quyết định nghiệp vụ.
+- [Frontend Design](FE/FrontendDesign.md): routes, modules, data flow và trạng thái UI.
+- [Figma UI/UX handoff](FE/FigmaDesign.md): design system, screens và prototype flows.
+- [Backend Design](BE/BackendDesign.md): module boundaries, request pipeline và quy tắc domain.
+- [Domain Model](DomainModel.md): MongoDB collections, schema và index.
+- [API Contract](APIContract.md): endpoints, payload và error model.
+- [Authentication](Authentication.md): session, bảo mật và phân quyền.
+- [Order Lifecycle](OrderLifecycle.md): state machine fulfillment/payment.
+- [Inventory Design](InventoryDesign.md): phạm vi chưa làm trong MVP và hướng mở rộng.
+- [Payment Integration](PaymentIntegration.md): COD/prepaid và ranh giới provider.
+- [Deployment & Observability](DeploymentObservability.md): môi trường deploy, logging, metrics và backup.
