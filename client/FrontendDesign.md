@@ -4,6 +4,38 @@ Thiết kế frontend ReactJS cho hai trải nghiệm trong cùng sản phẩm: 
 
 Đặc tả màn hình, design system và prototype flow nằm trong [FigmaDesign.md](FigmaDesign.md).
 
+Visual asset import được vào Figma: [BookStore-Figma-Import.svg](design/BookStore-Figma-Import.svg). SVG là bản tham chiếu; components và prototype cần dựng lại trong Figma.
+
+## Source structure
+
+```text
+src/
+├── app/                         # App shell, route setup, global providers
+├── assets/images/               # Local image assets and placeholders
+├── components/
+│   ├── layout/                  # Shared headers, shells, navigation
+│   └── ui/                      # Reusable buttons, fields, status, dialogs
+├── features/
+│   ├── auth/                    # Sign in, register, session bootstrap
+│   ├── catalog/                 # Book discovery, detail, search/filter
+│   ├── cart/                    # Server-backed cart interactions
+│   ├── checkout/                # Address, payment choice, order review
+│   ├── orders/                  # Customer order history and detail
+│   ├── admin-catalog/           # Admin book/category workflows
+│   └── admin-orders/            # Admin queue, detail, status actions
+├── hooks/                       # Cross-feature reusable React hooks
+├── pages/
+│   ├── store/                   # Storefront route composition
+│   ├── auth/                    # Login/register route composition
+│   ├── customer/                # Cart, checkout, account, orders routes
+│   └── admin/                   # Admin route composition
+├── services/api/                # Shared HTTP client and API configuration
+├── styles/                      # Global styles, tokens, fonts
+└── utils/                       # Small framework-independent helpers
+```
+
+Pages compose feature components; domain-specific UI/state/API code stays inside its feature. `components/ui` contains generic reusable controls only. Admin/customer are separated at route/page level, while authentication and authorization remain enforced by the API. Keep CRA entry files (`index.js`, `App.js`, tests) until routing is introduced; do not move or replace them as part of this folder scaffold.
+
 ## Route map
 
 | Route | Access | Mục đích |

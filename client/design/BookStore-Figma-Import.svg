@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1910" height="1150" viewBox="0 0 1910 1150">
+  <defs>
+    <linearGradient id="cover-main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#263c52"/>
+      <stop offset="0.52" stop-color="#597a80"/>
+      <stop offset="1" stop-color="#c27d5c"/>
+    </linearGradient>
+    <linearGradient id="cover-side" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#f1d39c"/>
+      <stop offset="1" stop-color="#b95d49"/>
+    </linearGradient>
+    <linearGradient id="cover-small" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9e7df"/>
+      <stop offset="1" stop-color="#668879"/>
+    </linearGradient>
+    <filter id="cover-shadow" x="-20%" y="-15%" width="150%" height="145%">
+      <feDropShadow dx="0" dy="18" stdDeviation="17" flood-color="#1d2630" flood-opacity="0.2"/>
+    </filter>
+    <clipPath id="desktop-cover-clip"><rect x="874" y="132" width="390" height="545" rx="2"/></clipPath>
+    <clipPath id="mobile-cover-clip"><rect x="1552" y="417" width="266" height="372" rx="2"/></clipPath>
+    <g id="cover-art">
+      <rect width="390" height="545" fill="url(#cover-main)"/>
+      <circle cx="304" cy="145" r="120" fill="#edc99a" opacity="0.68"/>
+      <path d="M0 370 L110 230 L188 329 L278 197 L390 360 L390 545 L0 545Z" fill="#263a48" opacity="0.82"/>
+      <path d="M0 438 L95 318 L174 395 L257 286 L390 423 L390 545 L0 545Z" fill="#172e3b" opacity="0.7"/>
+      <path d="M37 369 L77 272 L114 369Z" fill="#f1d7ab" opacity="0.82"/>
+      <path d="M259 394 L305 250 L350 394Z" fill="#e6b780" opacity="0.76"/>
+      <path d="M0 0 H390 V68 H0Z" fill="#182a35" opacity="0.36"/>
+      <text x="195" y="43" text-anchor="middle" fill="#fff" font-family="Manrope, Arial, sans-serif" font-size="14" letter-spacing="3">MỘC BẢN TUYỂN CHỌN</text>
+      <text x="195" y="122" text-anchor="middle" fill="#fff" font-family="'DM Serif Display', Georgia, serif" font-size="42">PHÍA SAU</text>
+      <text x="195" y="170" text-anchor="middle" fill="#fff" font-family="'DM Serif Display', Georgia, serif" font-size="42">MÙA GIÓ</text>
+      <path d="M145 193 H245" stroke="#f1d39c" stroke-width="2"/>
+      <text x="195" y="224" text-anchor="middle" fill="#f8eee0" font-family="Manrope, Arial, sans-serif" font-size="12" letter-spacing="2">MỘT CUỐN TIỂU THUYẾT</text>
+      <text x="195" y="503" text-anchor="middle" fill="#fff" font-family="'DM Serif Display', Georgia, serif" font-size="22">LÊ MINH AN</text>
+    </g>
+    <g id="cover-green">
+      <rect width="150" height="224" fill="url(#cover-small)"/>
+      <circle cx="111" cy="61" r="39" fill="#f2d394" opacity="0.85"/>
+      <path d="M0 157 L46 93 L78 141 L119 82 L150 128 V224 H0Z" fill="#315d53"/>
+      <text x="75" y="47" text-anchor="middle" fill="#223f39" font-family="'DM Serif Display', Georgia, serif" font-size="17">NHỮNG</text>
+      <text x="75" y="69" text-anchor="middle" fill="#223f39" font-family="'DM Serif Display', Georgia, serif" font-size="17">NGÀY XANH</text>
+      <text x="75" y="207" text-anchor="middle" fill="#fff" font-family="Manrope, Arial, sans-serif" font-size="9" letter-spacing="1">THẢO NGUYÊN</text>
+    </g>
+    <g id="cover-rust">
+      <rect width="150" height="224" fill="url(#cover-side)"/>
+      <path d="M0 155 Q40 118 79 150 T150 143 V224 H0Z" fill="#7e3e3a" opacity="0.88"/>
+      <circle cx="45" cy="78" r="35" fill="#f5e4bd" opacity="0.75"/>
+      <text x="75" y="113" text-anchor="middle" fill="#482f31" font-family="'DM Serif Display', Georgia, serif" font-size="17">NGƯỜI</text>
+      <text x="75" y="135" text-anchor="middle" fill="#482f31" font-family="'DM Serif Display', Georgia, serif" font-size="17">GIỮ LỬA</text>
+      <text x="75" y="207" text-anchor="middle" fill="#fff" font-family="Manrope, Arial, sans-serif" font-size="9" letter-spacing="1">TRẦN KHÁNH</text>
+    </g>
+    <g id="cover-blue">
+      <rect width="150" height="224" fill="#9cb8c9"/>
+      <path d="M0 130 Q42 95 78 132 T150 112 V224 H0Z" fill="#486b81"/>
+      <path d="M0 166 Q45 132 82 164 T150 148 V224 H0Z" fill="#29485f"/>
+      <text x="75" y="58" text-anchor="middle" fill="#203c50" font-family="'DM Serif Display', Georgia, serif" font-size="18">BẢN ĐỒ</text>
+      <text x="75" y="81" text-anchor="middle" fill="#203c50" font-family="'DM Serif Display', Georgia, serif" font-size="18">IM LẶNG</text>
+      <text x="75" y="207" text-anchor="middle" fill="#fff" font-family="Manrope, Arial, sans-serif" font-size="9" letter-spacing="1">VŨ HẢI NAM</text>
+    </g>
+    <g id="search-icon" fill="none" stroke="#34343b" stroke-width="1.8" stroke-linecap="round">
+      <circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 19 19"/>
+    </g>
+    <g id="user-icon" fill="none" stroke="#34343b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c.7-4 3.1-6 7.5-6s6.8 2 7.5 6"/>
+    </g>
+    <g id="cart-icon" fill="none" stroke="#6250c7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="19" r="1.2" fill="#6250c7"/><circle cx="18" cy="19" r="1.2" fill="#6250c7"/>
+    </g>
+  </defs>
+
+  <g id="desktop-home" aria-label="Desktop Home artboard">
+    <rect width="1440" height="1150" fill="#f1f5f8"/>
+    <path d="M0 0H420L0 420ZM0 312 312 0h150L0 462ZM1130 0h310v310Z" fill="#fff" opacity="0.34"/>
+    <path d="M0 86H1440" stroke="#e3e8ed"/>
+    <text x="66" y="56" fill="#29242c" font-family="Pacifico, 'Brush Script MT', cursive" font-size="34">Mộc Bản</text>
+    <text x="424" y="51" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="15">Trang chủ</text>
+    <text x="525" y="51" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="15">Sách</text>
+    <text x="596" y="51" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="15">Tác giả</text>
+    <text x="700" y="51" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="15">Blog</text>
+    <text x="765" y="51" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="15">Liên hệ</text>
+    <use xlink:href="#search-icon" x="1060" y="31"/>
+    <use xlink:href="#user-icon" x="1110" y="30"/>
+    <text x="1160" y="51" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="15" font-weight="600">0 đ</text>
+    <use xlink:href="#cart-icon" x="1202" y="29"/>
+    <circle cx="1230" cy="31" r="9" fill="#6250c7"/><text x="1230" y="35" text-anchor="middle" fill="#fff" font-family="Figtree, Arial, sans-serif" font-size="10">0</text>
+
+    <text x="72" y="212" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3">SÁCH MỚI</text>
+    <text x="68" y="306" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="72">Mỗi cuốn sách</text>
+    <text x="68" y="390" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="72">mở một thế giới.</text>
+    <text x="72" y="446" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="18">Những câu chuyện được chọn để ở lại lâu hơn,</text>
+    <text x="72" y="475" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="18">dành cho những hành trình rất riêng của bạn.</text>
+    <rect x="72" y="519" width="152" height="52" rx="3" fill="#6250c7"/>
+    <text x="148" y="552" text-anchor="middle" fill="#fff" font-family="Figtree, Arial, sans-serif" font-size="15" font-weight="600">Mua sách</text>
+    <rect x="240" y="519" width="157" height="52" rx="3" fill="none" stroke="#6250c7" stroke-width="1.3"/>
+    <text x="318" y="552" text-anchor="middle" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="15" font-weight="600">Đọc thử</text>
+    <text x="72" y="642" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="13">Giao hàng toàn quốc</text>
+    <circle cx="60" cy="637" r="3" fill="#6250c7"/>
+    <text x="242" y="642" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="13">Sách được tuyển chọn</text>
+    <circle cx="230" cy="637" r="3" fill="#6250c7"/>
+
+    <rect x="800" y="121" width="490" height="565" fill="#e4ebf0" opacity="0.52"/>
+    <path d="M792 635 1050 103 1318 643Z" fill="#fff" opacity="0.3"/>
+    <g filter="url(#cover-shadow)"><use xlink:href="#cover-art" x="874" y="132"/></g>
+    <rect x="1280" y="278" width="86" height="86" fill="#fff" opacity="0.88"/>
+    <text x="1323" y="310" text-anchor="middle" fill="#6250c7" font-family="'DM Serif Display', Georgia, serif" font-size="24">#1</text>
+    <text x="1323" y="332" text-anchor="middle" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="10">LỰA CHỌN</text>
+    <text x="1323" y="346" text-anchor="middle" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="10">CỦA TUẦN</text>
+
+    <rect x="0" y="716" width="1440" height="242" fill="#fff" opacity="0.55"/>
+    <rect x="70" y="754" width="205" height="164" fill="#dce6ec"/>
+    <circle cx="172" cy="813" r="43" fill="#d6b79f"/>
+    <path d="M97 916c8-55 33-78 75-78s67 23 75 78" fill="#506879"/>
+    <text x="327" y="776" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">GÓC NGƯỜI ĐỌC</text>
+    <text x="327" y="821" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="39">Một tiệm sách, nhiều thế giới</text>
+    <text x="327" y="857" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="15">Mộc Bản chọn những cuốn sách có thể đồng hành cùng bạn — từ một buổi chiều yên</text>
+    <text x="327" y="882" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="15">tĩnh đến những chuyến đi dài. Tìm cuốn sách tiếp theo của mình ngay hôm nay.</text>
+    <text x="327" y="920" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="14" font-weight="600">Khám phá câu chuyện của chúng tôi  →</text>
+
+    <text x="72" y="1024" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">MỚI TRÊN KỆ</text>
+    <text x="72" y="1068" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="34">Sách mới phát hành</text>
+    <text x="1210" y="1060" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="14" font-weight="600">Xem tất cả sách  →</text>
+    <g transform="translate(72 1090) scale(.48)"><use xlink:href="#cover-green"/></g>
+    <g transform="translate(254 1090) scale(.48)"><use xlink:href="#cover-rust"/></g>
+    <g transform="translate(436 1090) scale(.48)"><use xlink:href="#cover-blue"/></g>
+    <text x="154" y="1137" fill="#25242b" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600">Những ngày xanh</text>
+    <text x="336" y="1137" fill="#25242b" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600">Người giữ lửa</text>
+    <text x="518" y="1137" fill="#25242b" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600">Bản đồ im lặng</text>
+  </g>
+
+  <g id="mobile-home" transform="translate(1490 0)" aria-label="Mobile Home artboard">
+    <rect width="390" height="844" rx="22" fill="#f1f5f8" stroke="#cfd8df" stroke-width="2"/>
+    <path d="M0 0H390V844H0Z" fill="#f1f5f8"/>
+    <path d="M0 0h130L0 130ZM390 0v210L180 0Z" fill="#fff" opacity="0.28"/>
+    <path d="M0 60H390" stroke="#e0e6eb"/>
+    <text x="20" y="39" fill="#34343b" font-family="Figtree, Arial, sans-serif" font-size="23">☰</text>
+    <text x="195" y="40" text-anchor="middle" fill="#29242c" font-family="Pacifico, 'Brush Script MT', cursive" font-size="26">Mộc Bản</text>
+    <use xlink:href="#cart-icon" x="347" y="19" transform="scale(.9) translate(38 2)"/>
+    <circle cx="366" cy="17" r="8" fill="#6250c7"/><text x="366" y="21" text-anchor="middle" fill="#fff" font-family="Figtree, Arial, sans-serif" font-size="9">0</text>
+    <text x="22" y="101" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2.5">SÁCH MỚI</text>
+    <text x="20" y="151" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="38">Mỗi cuốn sách</text>
+    <text x="20" y="194" fill="#25242b" font-family="'DM Serif Display', Georgia, serif" font-size="38">mở một thế giới.</text>
+    <text x="22" y="226" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="13">Những câu chuyện được chọn để ở lại</text>
+    <text x="22" y="247" fill="#667078" font-family="Figtree, Arial, sans-serif" font-size="13">lâu hơn, dành cho hành trình của bạn.</text>
+    <rect x="22" y="267" width="132" height="44" rx="3" fill="#6250c7"/>
+    <text x="88" y="295" text-anchor="middle" fill="#fff" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600">Mua sách</text>
+    <rect x="164" y="267" width="142" height="44" rx="3" fill="none" stroke="#6250c7"/>
+    <text x="235" y="295" text-anchor="middle" fill="#6250c7" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600">Đọc thử</text>
+    <rect x="18" y="397" width="354" height="412" fill="#e4ebf0" opacity="0.5"/>
+    <g filter="url(#cover-shadow)"><use xlink:href="#cover-art" x="62" y="417" width="266" height="372"/></g>
+  </g>
+</svg>

@@ -34,29 +34,28 @@ MVP chưa quản lý tồn kho tự động. Admin xác nhận khả năng cung 
 
 Chưa tách role nhân viên; đơn vị vận chuyển chưa có tài khoản hoặc tích hợp trực tiếp.
 
-## Cấu trúc dự kiến
+## Cấu trúc hiện tại
 
 ```text
 .
-├── FE/                     # Frontend design and, later, ReactJS source
-├── BE/                     # Backend design and, later, ExpressJS source
+├── client/                 # ReactJS application and frontend design
+├── server/                 # ExpressJS/MongoDB application and backend design
 ├── README.md
 ├── SystemDesign.md
 └── ...                     # Domain/API/security/deployment documents
 ```
 
-Cấu trúc thư mục thực tế có thể thay đổi sau khi xác định quy mô và công cụ phát triển.
-
 ## Trạng thái hiện tại
 
-Đây là giai đoạn thiết kế trước khi khởi tạo ứng dụng. Các tài liệu bên dưới là baseline cần được rà soát trước khi triển khai và mở bán thật.
+Skeleton React và Express/MongoDB đã được khởi tạo. Các business flow và UI chưa được triển khai; tài liệu bên dưới là baseline để tiếp tục coding và cần được rà soát trước khi mở bán thật.
 
 ## Tài liệu
 
 - [System Design](SystemDesign.md): phạm vi MVP, kiến trúc và quyết định nghiệp vụ.
-- [Frontend Design](FE/FrontendDesign.md): routes, modules, data flow và trạng thái UI.
-- [Figma UI/UX handoff](FE/FigmaDesign.md): design system, screens và prototype flows.
-- [Backend Design](BE/BackendDesign.md): module boundaries, request pipeline và quy tắc domain.
+- [Frontend Design](client/FrontendDesign.md): routes, modules, data flow và trạng thái UI.
+- [Figma UI/UX handoff](client/FigmaDesign.md): design system, screens và prototype flows.
+- [Figma import SVG](client/design/BookStore-Figma-Import.svg): visual boards desktop/mobile có thể import vào Figma.
+- [Backend Design](server/BackendDesign.md): module boundaries, request pipeline và quy tắc domain.
 - [Domain Model](DomainModel.md): MongoDB collections, schema và index.
 - [API Contract](APIContract.md): endpoints, payload và error model.
 - [Authentication](Authentication.md): session, bảo mật và phân quyền.

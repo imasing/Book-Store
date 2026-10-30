@@ -98,9 +98,10 @@ API phải tính tổng tiền từ dữ liệu catalog phía server, không tin
 - [Inventory design](InventoryDesign.md): phạm vi chưa làm trong MVP và hướng mở rộng an toàn.
 - [Payment integration](PaymentIntegration.md): boundary cho COD/trả trước và provider tương lai.
 - [Deployment và observability](DeploymentObservability.md): môi trường, cấu hình, logging, metrics và backup.
-- [Frontend design](FE/FrontendDesign.md): routes, modules, data flow và UI states.
-- [Figma UI/UX handoff](FE/FigmaDesign.md): design system, frames, screens và prototype flows.
-- [Backend design](BE/BackendDesign.md): module boundaries, folder structure, middleware, persistence và service flow.
+- [Frontend design](client/FrontendDesign.md): routes, modules, data flow và UI states.
+- [Figma UI/UX handoff](client/FigmaDesign.md): design system, frames, screens và prototype flows.
+- [Figma import SVG](client/design/BookStore-Figma-Import.svg): visual boards desktop/mobile có thể import vào Figma.
+- [Backend design](server/BackendDesign.md): module boundaries, folder structure, middleware, persistence và service flow.
 
 ## 8. Các quyết định cần xác nhận trước production
 
