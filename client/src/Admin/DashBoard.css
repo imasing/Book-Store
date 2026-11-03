@@ -1,0 +1,32 @@
+.background-image {
+  background-image: url('https://www.tastingtable.com/img/gallery/14-facts-you-need-to-know-about-hot-pot/intro-1681931538.webp');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.dashboard-content {
+  position: relative;
+  z-index: 1;
+  height: 75vh; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-content h1 {
+  font-size: 64px;
+  font-weight: bold;
+  color: #222; 
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}

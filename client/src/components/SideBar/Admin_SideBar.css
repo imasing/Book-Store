@@ -1,0 +1,36 @@
+.admin-sidebar {
+  min-height: calc(100vh - 72px);
+  padding: 28px 0;
+  background: #f3f4ef;
+  border-right: 1px solid #e4e6de;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 5px;
+  padding: 11px 12px;
+  color: #58625a;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sidebar-link:hover {
+  color: #17684f;
+  background: #e2eee7;
+}
+
+.sidebar-link.active {
+  color: #17684f;
+  background: #e2eee7;
+  font-weight: 700;
+}
+
+.admin-sidebar-label {
+  padding: 0 24px;
+  color: #899188;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
