@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập &mdash; Quản trị Folio &amp; Fern</title>
+  <meta name="description" content="Đăng nhập trang quản trị Folio &amp; Fern.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1f1a17">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='12' fill='%237b1e2c'/%3E%3Cpath d='M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z M22 26.6c-.2-6.2 1-11.6 4-16.4' fill='none' stroke='%23f5eee1' stroke-width='2'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Dùng chung Bootstrap + design layer với trang khách -->
+  <link rel="stylesheet" href="../customer/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../customer/css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <a class="skip-link" href="#main">Bỏ qua, tới form đăng nhập</a>
+  <div class="auth-page">
+    <aside class="auth-aside" aria-hidden="true">
+      <a class="brand" href="../customer/index.html" aria-label="Folio &amp; Fern Booksellers">
+          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+            <rect width="44" height="44" rx="12" fill="#7b1e2c"/>
+            <g fill="none" stroke="#f5eee1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z"/>
+              <path d="M22 27.3v7"/>
+              <path d="M22 26.6c-.2-6.2 1-11.6 4-16.4"/>
+            </g>
+            <g fill="#a9bb9c">
+              <ellipse cx="19.1" cy="21.6" rx="3.1" ry="1.25" transform="rotate(-28 19.1 21.6)"/>
+              <ellipse cx="25.6" cy="20.2" rx="3.1" ry="1.25" transform="rotate(22 25.6 20.2)"/>
+              <ellipse cx="20.4" cy="16.9" rx="2.7" ry="1.1" transform="rotate(-34 20.4 16.9)"/>
+              <ellipse cx="26.4" cy="15.4" rx="2.5" ry="1.05" transform="rotate(18 26.4 15.4)"/>
+              <ellipse cx="22.6" cy="12.6" rx="2.1" ry=".95" transform="rotate(-40 22.6 12.6)"/>
+            </g>
+          </svg>
+          <span>
+            <span class="brand-name">Folio <em>&amp;</em> Fern</span>
+            <span class="brand-sub">Booksellers</span>
+          </span>
+        </a>
+      <div>
+        <p class="eyebrow eyebrow--light">Dành cho nhân viên</p>
+        <h2>Mỗi kệ sách gọn gàng bắt đầu từ đây.</h2>
+        <p>Quản lý đầu sách, thể loại và đơn hàng của cửa hàng.</p>
+        <div class="auth-books">
+          <div class="cover cover--tile" data-f="serif" style="--bg:#b8741a;--fg:#2a1d14;--ac:#8f5512;--ts:11.00cqi;--a2:#f4ead5;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Truyện ngắn</span><span class="cover-title"><span>Mùa</span> <span>Hạ</span> <span>Ở</span> <span>Hồ</span> <span>Tây</span></span><span class="cover-author">Vũ Khánh Linh</span></span></div>
+          <div class="cover cover--bigtype" data-f="black" style="--bg:#1c1a19;--fg:#f3ead8;--ac:#d7372f;--ts:11.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Kỹ năng</span><span class="cover-title"><span>Bắt</span> <span>Đầu</span> <span>Từ</span> <span>Những</span> <span>Thói</span> <span>Quen</span> <span>Nhỏ</span></span><span class="cover-author">Nguyễn An Bình</span></span></div>
+          <div class="cover cover--arch" data-f="black" style="--bg:#f3d98b;--fg:#2f4a3a;--ac:#2f4a3a;--ts:10.50cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-title"><span>Chú</span> <span>Gấu</span> <span>Mượn</span> <span>Sách</span></span><span class="cover-author">Phan Thu Hà</span></span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="auth-main" tabindex="-1">
+      <form class="auth-card" action="index.html" method="post" data-login-form novalidate>
+        <h1>Đăng nhập</h1>
+        <p class="lead-sm">Chỉ tài khoản quản trị mới truy cập được trang này.</p>
+        <div class="auth-alert" role="alert" data-login-alert>Email hoặc mật khẩu không đúng.</div>
+        <div class="mb-3">
+          <label class="form-label" for="lf-email">Email</label>
+          <input class="form-control" id="lf-email" name="email" type="email" autocomplete="username" required>
+          <span class="form-error" data-error-for="email"></span>
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="lf-pass">Mật khẩu</label>
+          <input class="form-control" id="lf-pass" name="password" type="password" autocomplete="current-password" required>
+          <span class="form-error" data-error-for="password"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100">Đăng nhập</button>
+        <p class="small text-soft text-center mt-3 mb-0"><a href="../customer/index.html">&larr; Về cửa hàng</a></p>
+      </form>
+    </main>
+  </div>
+
+  <script src="../customer/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

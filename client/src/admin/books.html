@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sách &mdash; Quản trị Folio &amp; Fern</title>
+  <meta name="description" content="Quản lý danh mục sách: thêm, sửa, mở bán hoặc ẩn sách.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1f1a17">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='12' fill='%237b1e2c'/%3E%3Cpath d='M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z M22 26.6c-.2-6.2 1-11.6 4-16.4' fill='none' stroke='%23f5eee1' stroke-width='2'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Dùng chung Bootstrap + design layer với trang khách -->
+  <link rel="stylesheet" href="../customer/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../customer/css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <a class="skip-link" href="#main">Bỏ qua, tới nội dung chính</a>
+
+  <div class="admin-shell">
+    <!-- ============================ SIDEBAR ============================ -->
+    <div class="admin-sidebar-wrap">
+      <aside class="admin-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar" aria-label="Điều hướng quản trị">
+        <div class="offcanvas-body">
+          <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Đóng menu"></button>
+          <a class="brand" href="index.html" aria-label="Folio &amp; Fern, trang quản trị">
+          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+            <rect width="44" height="44" rx="12" fill="#7b1e2c"/>
+            <g fill="none" stroke="#f5eee1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z"/>
+              <path d="M22 27.3v7"/>
+              <path d="M22 26.6c-.2-6.2 1-11.6 4-16.4"/>
+            </g>
+            <g fill="#a9bb9c">
+              <ellipse cx="19.1" cy="21.6" rx="3.1" ry="1.25" transform="rotate(-28 19.1 21.6)"/>
+              <ellipse cx="25.6" cy="20.2" rx="3.1" ry="1.25" transform="rotate(22 25.6 20.2)"/>
+              <ellipse cx="20.4" cy="16.9" rx="2.7" ry="1.1" transform="rotate(-34 20.4 16.9)"/>
+              <ellipse cx="26.4" cy="15.4" rx="2.5" ry="1.05" transform="rotate(18 26.4 15.4)"/>
+              <ellipse cx="22.6" cy="12.6" rx="2.1" ry=".95" transform="rotate(-40 22.6 12.6)"/>
+            </g>
+          </svg>
+          <span>
+            <span class="brand-name">Folio <em>&amp;</em> Fern</span>
+            <span class="brand-sub">Booksellers</span>
+          </span>
+        </a>
+          <span class="admin-role">Quản trị</span>
+
+          <p class="admin-nav-label">Cửa hàng</p>
+          <ul class="admin-nav">
+            <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg> Tổng quan</a></li>
+            <li><a href="books.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg> Sách</a></li>
+            <li><a href="categories.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg> Thể loại</a></li>
+            <li><a href="orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> Đơn hàng <span class="nav-count" aria-label="2 đơn mới">2</span></a></li>
+          </ul>
+
+          <p class="admin-nav-label">Khác</p>
+          <ul class="admin-nav">
+            <li><a href="../customer/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg> Xem cửa hàng</a></li>
+          </ul>
+
+          <div class="admin-sidebar-foot">
+            <span class="avatar-admin" aria-hidden="true">QT</span>
+            <span class="who"><strong>Quản trị Mộc Bản</strong><span>admin@mocban.test</span></span>
+            <a class="btn-logout" href="login.html" aria-label="Đăng xuất" title="Đăng xuất" data-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="admin-main">
+      <!-- ============================ TOPBAR ============================ -->
+      <header class="admin-topbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Mở menu">
+          <span class="toggler-bar"></span>
+          <span class="toggler-bar"></span>
+          <span class="toggler-bar"></span>
+        </button>
+        <form class="nav-search" action="books.html" method="get" role="search">
+          <label class="visually-hidden" for="top-q">Tìm sách</label>
+          <input id="top-q" name="q" type="search" placeholder="Tên sách, tác giả, ISBN" autocomplete="off">
+          <button type="submit" aria-label="Tìm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        </form>
+        <div class="admin-topbar-actions">
+          <a class="link-arrow link-store d-none d-md-inline-flex" href="../customer/index.html" target="_blank" rel="noopener">Cửa hàng <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </header>
+
+      <main id="main" class="admin-content" tabindex="-1">
+        <section class="page-head" aria-labelledby="books-title">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Quản trị</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Sách</li>
+            </ol>
+          </nav>
+          <div class="page-head-row">
+            <div>
+              <h1 id="books-title">Sách</h1>
+              <p>Tất cả đầu sách, kể cả bản nháp. Bật &ldquo;Đang bán&rdquo; để sách hiện trên cửa hàng.</p>
+            </div>
+            <div class="page-head-actions"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-new><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Thêm sách</button></div>
+          </div>
+          
+        </section>
+
+        <section class="panel" aria-labelledby="books-list-title">
+          <div class="panel-head">
+            <h2 class="panel-title visually-hidden" id="books-list-title">Danh sách sách</h2>
+            <form class="admin-toolbar w-100" data-table-filter="#books-table" role="search">
+              <div class="shop-search">
+                <label class="visually-hidden" for="book-q">Tìm theo tên, tác giả hoặc ISBN</label>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input class="form-control" type="search" id="book-q" name="q" placeholder="Tìm theo tên, tác giả hoặc ISBN" autocomplete="off" data-filter-text>
+              </div>
+              <label class="visually-hidden" for="book-cat">Thể loại</label>
+              <select class="form-select" id="book-cat" name="category" data-filter-key="category">
+                <option value="">Tất cả thể loại</option><option value="cat-van-hoc">Văn học Việt Nam</option><option value="cat-ky-nang">Kỹ năng sống</option><option value="cat-thieu-nhi">Thiếu nhi</option><option value="cat-lich-su">Lịch sử (đang ẩn)</option>
+              </select>
+              <label class="visually-hidden" for="book-status">Trạng thái</label>
+              <select class="form-select" id="book-status" name="status" data-filter-key="status">
+                <option value="">Mọi trạng thái</option><option value="published">Đang bán</option><option value="draft">Bản nháp</option>
+              </select>
+            </form>
+          </div>
+          <div class="table-wrap">
+            <table class="table admin-table table-hover" id="books-table">
+              <thead><tr><th scope="col">Sách</th><th scope="col">Thể loại</th><th scope="col">ISBN</th><th scope="col">NXB</th><th scope="col" class="num">Giá</th><th scope="col">Đang bán</th><th scope="col">Cập nhật</th><th scope="col" class="actions"><span class="visually-hidden">Thao tác</span></th></tr></thead>
+              <tbody>
+                <tr data-row data-search="phía sau mùa gió lê minh an 9786043912345" data-category="cat-van-hoc" data-status="published"
+                    data-book='{&quot;id&quot;:&quot;book-phia-sau-mua-gio&quot;,&quot;title&quot;:&quot;Phía Sau Mùa Gió&quot;,&quot;author&quot;:&quot;Lê Minh An&quot;,&quot;publisher&quot;:&quot;Mộc Bản&quot;,&quot;isbn&quot;:&quot;9786043912345&quot;,&quot;categoryId&quot;:&quot;cat-van-hoc&quot;,&quot;price&quot;:156000,&quot;description&quot;:&quot;Một mùa gió chướng, một ngôi làng ven biển và những người ở lại.&quot;,&quot;isPublished&quot;:true}'>
+                  <td><div class="cell-book"><div class="cover cover--waves" data-f="italic" style="--bg:#2f4a3a;--fg:#f1e6cf;--ac:#9cc3d5;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tiểu thuyết</span><span class="cover-title"><span>Phía</span> <span>Sau</span> <span>Mùa</span> <span>Gió</span></span><span class="cover-author">Lê Minh An</span></span></div><div><strong>Phía Sau Mùa Gió</strong><span>Lê Minh An</span></div></div></td>
+                  <td>Văn học Việt Nam</td>
+                  <td class="mono">9786043912345</td>
+                  <td>Mộc Bản</td>
+                  <td class="num price">156.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-phia-sau-mua-gio" checked data-toggle-publish><label class="visually-hidden" for="pub-book-phia-sau-mua-gio">Mở bán Phía Sau Mùa Gió</label></div></td>
+                  <td class="nowrap">18/10/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Phía Sau Mùa Gió" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Phía Sau Mùa Gió" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Phía Sau Mùa Gió" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                <tr data-row data-search="những ngày xanh thảo nguyên 9786043912346" data-category="cat-van-hoc" data-status="published"
+                    data-book='{&quot;id&quot;:&quot;book-nhung-ngay-xanh&quot;,&quot;title&quot;:&quot;Những Ngày Xanh&quot;,&quot;author&quot;:&quot;Thảo Nguyên&quot;,&quot;publisher&quot;:&quot;Mộc Bản&quot;,&quot;isbn&quot;:&quot;9786043912346&quot;,&quot;categoryId&quot;:&quot;cat-van-hoc&quot;,&quot;price&quot;:128000,&quot;description&quot;:&quot;Tản văn về tuổi trẻ, phố nhỏ và những buổi chiều xanh.&quot;,&quot;isPublished&quot;:true}'>
+                  <td><div class="cell-book"><div class="cover cover--sun" data-f="italic" style="--bg:#eadcc2;--fg:#2a211c;--ac:#c4553a;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tản văn</span><span class="cover-title"><span>Những</span> <span>Ngày</span> <span>Xanh</span></span><span class="cover-author">Thảo Nguyên</span></span></div><div><strong>Những Ngày Xanh</strong><span>Thảo Nguyên</span></div></div></td>
+                  <td>Văn học Việt Nam</td>
+                  <td class="mono">9786043912346</td>
+                  <td>Mộc Bản</td>
+                  <td class="num price">128.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-nhung-ngay-xanh" checked data-toggle-publish><label class="visually-hidden" for="pub-book-nhung-ngay-xanh">Mở bán Những Ngày Xanh</label></div></td>
+                  <td class="nowrap">15/10/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Những Ngày Xanh" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Những Ngày Xanh" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Những Ngày Xanh" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                <tr data-row data-search="bắt đầu từ những thói quen nhỏ nguyễn an bình 9786043912347" data-category="cat-ky-nang" data-status="published"
+                    data-book='{&quot;id&quot;:&quot;book-thoi-quen-nho&quot;,&quot;title&quot;:&quot;Bắt Đầu Từ Những Thói Quen Nhỏ&quot;,&quot;author&quot;:&quot;Nguyễn An Bình&quot;,&quot;publisher&quot;:&quot;Mộc Bản&quot;,&quot;isbn&quot;:&quot;9786043912347&quot;,&quot;categoryId&quot;:&quot;cat-ky-nang&quot;,&quot;price&quot;:142000,&quot;description&quot;:&quot;Những thay đổi nhỏ mỗi ngày tạo nên khác biệt lớn.&quot;,&quot;isPublished&quot;:true}'>
+                  <td><div class="cell-book"><div class="cover cover--bigtype" data-f="black" style="--bg:#1c1a19;--fg:#f3ead8;--ac:#d7372f;--ts:11.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Kỹ năng</span><span class="cover-title"><span>Bắt</span> <span>Đầu</span> <span>Từ</span> <span>Những</span> <span>Thói</span> <span>Quen</span> <span>Nhỏ</span></span><span class="cover-author">Nguyễn An Bình</span></span></div><div><strong>Bắt Đầu Từ Những Thói Quen Nhỏ</strong><span>Nguyễn An Bình</span></div></div></td>
+                  <td>Kỹ năng sống</td>
+                  <td class="mono">9786043912347</td>
+                  <td>Mộc Bản</td>
+                  <td class="num price">142.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-thoi-quen-nho" checked data-toggle-publish><label class="visually-hidden" for="pub-book-thoi-quen-nho">Mở bán Bắt Đầu Từ Những Thói Quen Nhỏ</label></div></td>
+                  <td class="nowrap">12/10/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Bắt Đầu Từ Những Thói Quen Nhỏ" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Bắt Đầu Từ Những Thói Quen Nhỏ" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Bắt Đầu Từ Những Thói Quen Nhỏ" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                <tr data-row data-search="chú gấu mượn sách phan thu hà 9786043912348" data-category="cat-thieu-nhi" data-status="published"
+                    data-book='{&quot;id&quot;:&quot;book-chu-gau-muon-sach&quot;,&quot;title&quot;:&quot;Chú Gấu Mượn Sách&quot;,&quot;author&quot;:&quot;Phan Thu Hà&quot;,&quot;publisher&quot;:&quot;Kim Đồng&quot;,&quot;isbn&quot;:&quot;9786043912348&quot;,&quot;categoryId&quot;:&quot;cat-thieu-nhi&quot;,&quot;price&quot;:89000,&quot;description&quot;:&quot;Chú gấu nhỏ và thư viện trong rừng.&quot;,&quot;isPublished&quot;:true}'>
+                  <td><div class="cell-book"><div class="cover cover--arch" data-f="black" style="--bg:#f3d98b;--fg:#2f4a3a;--ac:#2f4a3a;--ts:10.50cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-title"><span>Chú</span> <span>Gấu</span> <span>Mượn</span> <span>Sách</span></span><span class="cover-author">Phan Thu Hà</span></span></div><div><strong>Chú Gấu Mượn Sách</strong><span>Phan Thu Hà</span></div></div></td>
+                  <td>Thiếu nhi</td>
+                  <td class="mono">9786043912348</td>
+                  <td>Kim Đồng</td>
+                  <td class="num price">89.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-chu-gau-muon-sach" checked data-toggle-publish><label class="visually-hidden" for="pub-book-chu-gau-muon-sach">Mở bán Chú Gấu Mượn Sách</label></div></td>
+                  <td class="nowrap">08/10/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Chú Gấu Mượn Sách" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Chú Gấu Mượn Sách" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Chú Gấu Mượn Sách" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                <tr data-row data-search="mùa hạ ở hồ tây vũ khánh linh 9786043912349" data-category="cat-van-hoc" data-status="published"
+                    data-book='{&quot;id&quot;:&quot;book-mua-ha-o-ho-tay&quot;,&quot;title&quot;:&quot;Mùa Hạ Ở Hồ Tây&quot;,&quot;author&quot;:&quot;Vũ Khánh Linh&quot;,&quot;publisher&quot;:&quot;Nhã Nam&quot;,&quot;isbn&quot;:&quot;9786043912349&quot;,&quot;categoryId&quot;:&quot;cat-van-hoc&quot;,&quot;price&quot;:118000,&quot;description&quot;:&quot;Mười hai truyện ngắn về một mùa hè Hà Nội.&quot;,&quot;isPublished&quot;:true}'>
+                  <td><div class="cell-book"><div class="cover cover--tile" data-f="serif" style="--bg:#b8741a;--fg:#2a1d14;--ac:#8f5512;--ts:11.00cqi;--a2:#f4ead5;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Truyện ngắn</span><span class="cover-title"><span>Mùa</span> <span>Hạ</span> <span>Ở</span> <span>Hồ</span> <span>Tây</span></span><span class="cover-author">Vũ Khánh Linh</span></span></div><div><strong>Mùa Hạ Ở Hồ Tây</strong><span>Vũ Khánh Linh</span></div></div></td>
+                  <td>Văn học Việt Nam</td>
+                  <td class="mono">9786043912349</td>
+                  <td>Nhã Nam</td>
+                  <td class="num price">118.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-mua-ha-o-ho-tay" checked data-toggle-publish><label class="visually-hidden" for="pub-book-mua-ha-o-ho-tay">Mở bán Mùa Hạ Ở Hồ Tây</label></div></td>
+                  <td class="nowrap">02/10/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Mùa Hạ Ở Hồ Tây" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Mùa Hạ Ở Hồ Tây" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Mùa Hạ Ở Hồ Tây" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                <tr data-row data-search="bản đồ của sự tập trung đỗ quang huy " data-category="cat-ky-nang" data-status="draft"
+                    data-book='{&quot;id&quot;:&quot;book-ban-do-tap-trung&quot;,&quot;title&quot;:&quot;Bản Đồ Của Sự Tập Trung&quot;,&quot;author&quot;:&quot;Đỗ Quang Huy&quot;,&quot;publisher&quot;:&quot;Mộc Bản&quot;,&quot;isbn&quot;:&quot;&quot;,&quot;categoryId&quot;:&quot;cat-ky-nang&quot;,&quot;price&quot;:165000,&quot;description&quot;:&quot;Bản nháp — đang chờ bìa và ISBN.&quot;,&quot;isPublished&quot;:false}'>
+                  <td><div class="cell-book"><div class="cover cover--label" data-f="serif" style="--bg:#7b1e2c;--fg:#3a1017;--ac:#efe3c8;--ts:8.50cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Kỹ năng</span><span class="cover-title"><span>Bản</span> <span>Đồ</span> <span>Của</span> <span>Sự</span> <span>Tập</span> <span>Trung</span></span><span class="cover-author">Đỗ Quang Huy</span></span></div><div><strong>Bản Đồ Của Sự Tập Trung</strong><span>Đỗ Quang Huy</span></div></div></td>
+                  <td>Kỹ năng sống</td>
+                  <td class="mono"><span class="text-soft">&mdash;</span></td>
+                  <td>Mộc Bản</td>
+                  <td class="num price">165.000&nbsp;₫</td>
+                  <td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="pub-book-ban-do-tap-trung" data-toggle-publish><label class="visually-hidden" for="pub-book-ban-do-tap-trung">Mở bán Bản Đồ Của Sự Tập Trung</label></div></td>
+                  <td class="nowrap">01/11/2026</td>
+                  <td class="actions">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#book-modal" data-book-edit aria-label="Sửa Bản Đồ Của Sự Tập Trung" title="Sửa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></button>
+                    <button type="button" class="icon-btn icon-btn--danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-delete-name="Bản Đồ Của Sự Tập Trung" data-delete-note="Sách sẽ bị gỡ khỏi mọi giỏ hàng. Đơn hàng cũ không bị ảnh hưởng." aria-label="Xóa Bản Đồ Của Sự Tập Trung" title="Xóa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg></button>
+                  </td>
+                </tr>
+                  <tr class="table-empty-row" data-empty hidden><td colspan="8"><div class="table-empty"><h3>Không có kết quả</h3><p class="m-0">Thử bỏ bớt bộ lọc hoặc tìm theo từ khóa khác.</p></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+            <div class="table-foot">
+              <p class="m-0" data-result-count aria-live="polite">Hiển thị 6 / 6 sách</p>
+              <nav aria-label="Phân trang">
+                <ul class="pagination pagination-sm">
+                  <li class="page-item disabled"><span class="page-link">&lsaquo;</span></li>
+                  <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                  <li class="page-item disabled"><span class="page-link">&rsaquo;</span></li>
+                </ul>
+              </nav>
+            </div>
+        </section>
+      </main>
+
+      <footer class="admin-foot">
+        <p class="m-0">&copy; <span data-year>2026</span> Folio &amp; Fern Booksellers &middot; Trang quản trị</p>
+        <p class="m-0">Template gốc bởi <a href="https://uicookies.com/">uiCookies</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ============================ BOOK FORM (AB2 / AB3) ============================ -->
+  <div class="modal fade" id="book-modal" tabindex="-1" aria-labelledby="book-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <form class="modal-content" data-book-form novalidate>
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="book-modal-title" data-modal-title>Thêm sách</h2>
+            <p class="modal-sub">Trường có dấu * là bắt buộc.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="id">
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label class="form-label" for="bf-title">Tên sách *</label>
+              <input class="form-control" id="bf-title" name="title" required>
+              <span class="form-error" data-error-for="title"></span>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label" for="bf-price">Giá (₫) *</label>
+              <input class="form-control" id="bf-price" name="price" type="number" min="1" step="1000" inputmode="numeric" required>
+              <span class="form-error" data-error-for="price"></span>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="bf-author">Tác giả *</label>
+              <input class="form-control" id="bf-author" name="author" required>
+              <span class="form-error" data-error-for="author"></span>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="bf-cat">Thể loại *</label>
+              <select class="form-select" id="bf-cat" name="categoryId" required>
+                <option value="">Chọn thể loại</option><option value="cat-van-hoc">Văn học Việt Nam</option><option value="cat-ky-nang">Kỹ năng sống</option><option value="cat-thieu-nhi">Thiếu nhi</option><option value="cat-lich-su">Lịch sử (đang ẩn)</option>
+              </select>
+              <span class="form-error" data-error-for="categoryId"></span>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="bf-publisher">Nhà xuất bản</label>
+              <input class="form-control" id="bf-publisher" name="publisher">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="bf-isbn">ISBN</label>
+              <input class="form-control" id="bf-isbn" name="isbn" inputmode="numeric" placeholder="10 hoặc 13 số">
+              <span class="form-error" data-error-for="isbn"></span>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="bf-desc">Mô tả</label>
+              <textarea class="form-control" id="bf-desc" name="description" rows="4"></textarea>
+            </div>
+            <div class="col-12">
+              <p class="form-label mb-1">Ảnh bìa</p>
+              <p class="small text-soft m-0">Upload ảnh chưa nằm trong MVP (<code>imageUrls</code> mặc định rỗng).</p>
+            </div>
+            <div class="col-12">
+              <div class="form-check form-switch filter-switch p-0">
+                <label class="form-check-label" for="bf-pub">Đang bán (hiện trên cửa hàng)</label>
+                <input class="form-check-input" type="checkbox" role="switch" id="bf-pub" name="isPublished">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu sách</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ============================ CONFIRM DELETE ============================ -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="delete-modal-title">Xóa &ldquo;<span data-delete-target></span>&rdquo;?</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <p class="m-0" data-delete-note-target>Thao tác này không thể hoàn tác.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Giữ lại</button>
+          <button type="button" class="btn btn-primary" data-delete-confirm><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="m6 7 1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg> Xóa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="toast-lite admin-toast" data-toast aria-hidden="true">
+    <div class="toast-text"><em data-toast-kicker>Đã lưu</em><strong data-toast-title></strong></div>
+  </div>
+  <div class="visually-hidden" aria-live="polite" data-live></div>
+
+  <script src="../customer/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tổng quan &mdash; Quản trị Folio &amp; Fern</title>
+  <meta name="description" content="Tổng quan hoạt động cửa hàng: doanh thu, đơn mới, sách đang bán.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1f1a17">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='12' fill='%237b1e2c'/%3E%3Cpath d='M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z M22 26.6c-.2-6.2 1-11.6 4-16.4' fill='none' stroke='%23f5eee1' stroke-width='2'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <!-- Dùng chung Bootstrap + design layer với trang khách -->
+  <link rel="stylesheet" href="../customer/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="../customer/css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <a class="skip-link" href="#main">Bỏ qua, tới nội dung chính</a>
+
+  <div class="admin-shell">
+    <!-- ============================ SIDEBAR ============================ -->
+    <div class="admin-sidebar-wrap">
+      <aside class="admin-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar" aria-label="Điều hướng quản trị">
+        <div class="offcanvas-body">
+          <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Đóng menu"></button>
+          <a class="brand" href="index.html" aria-label="Folio &amp; Fern, trang quản trị">
+          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+            <rect width="44" height="44" rx="12" fill="#7b1e2c"/>
+            <g fill="none" stroke="#f5eee1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 26.5c4.6-2 9.3-1.8 14 .8 4.7-2.6 9.4-2.8 14-.8v7c-4.6-2-9.3-1.8-14 .8-4.7-2.6-9.4-2.8-14-.8Z"/>
+              <path d="M22 27.3v7"/>
+              <path d="M22 26.6c-.2-6.2 1-11.6 4-16.4"/>
+            </g>
+            <g fill="#a9bb9c">
+              <ellipse cx="19.1" cy="21.6" rx="3.1" ry="1.25" transform="rotate(-28 19.1 21.6)"/>
+              <ellipse cx="25.6" cy="20.2" rx="3.1" ry="1.25" transform="rotate(22 25.6 20.2)"/>
+              <ellipse cx="20.4" cy="16.9" rx="2.7" ry="1.1" transform="rotate(-34 20.4 16.9)"/>
+              <ellipse cx="26.4" cy="15.4" rx="2.5" ry="1.05" transform="rotate(18 26.4 15.4)"/>
+              <ellipse cx="22.6" cy="12.6" rx="2.1" ry=".95" transform="rotate(-40 22.6 12.6)"/>
+            </g>
+          </svg>
+          <span>
+            <span class="brand-name">Folio <em>&amp;</em> Fern</span>
+            <span class="brand-sub">Booksellers</span>
+          </span>
+        </a>
+          <span class="admin-role">Quản trị</span>
+
+          <p class="admin-nav-label">Cửa hàng</p>
+          <ul class="admin-nav">
+            <li><a href="index.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg> Tổng quan</a></li>
+            <li><a href="books.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg> Sách</a></li>
+            <li><a href="categories.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg> Thể loại</a></li>
+            <li><a href="orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> Đơn hàng <span class="nav-count" aria-label="2 đơn mới">2</span></a></li>
+          </ul>
+
+          <p class="admin-nav-label">Khác</p>
+          <ul class="admin-nav">
+            <li><a href="../customer/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg> Xem cửa hàng</a></li>
+          </ul>
+
+          <div class="admin-sidebar-foot">
+            <span class="avatar-admin" aria-hidden="true">QT</span>
+            <span class="who"><strong>Quản trị Mộc Bản</strong><span>admin@mocban.test</span></span>
+            <a class="btn-logout" href="login.html" aria-label="Đăng xuất" title="Đăng xuất" data-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="admin-main">
+      <!-- ============================ TOPBAR ============================ -->
+      <header class="admin-topbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Mở menu">
+          <span class="toggler-bar"></span>
+          <span class="toggler-bar"></span>
+          <span class="toggler-bar"></span>
+        </button>
+        <form class="nav-search" action="orders.html" method="get" role="search">
+          <label class="visually-hidden" for="top-q">Tìm đơn hàng</label>
+          <input id="top-q" name="q" type="search" placeholder="Mã đơn, tên hoặc SĐT khách" autocomplete="off">
+          <button type="submit" aria-label="Tìm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        </form>
+        <div class="admin-topbar-actions">
+          <a class="link-arrow link-store d-none d-md-inline-flex" href="../customer/index.html" target="_blank" rel="noopener">Cửa hàng <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </header>
+
+      <main id="main" class="admin-content" tabindex="-1">
+        <section class="page-head" aria-labelledby="dash-title">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Quản trị</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Tổng quan</li>
+            </ol>
+          </nav>
+          <div class="page-head-row">
+            <div>
+              <h1 id="dash-title">Chào buổi sáng, Quản trị</h1>
+              <p>Hôm nay có <strong>2 đơn mới</strong> đang chờ xác nhận. Kiểm tra kho trước khi xác nhận cung ứng.</p>
+            </div>
+            
+          </div>
+          <div class="page-head-books" aria-hidden="true">
+            <div class="cover cover--waves" data-f="italic" style="--bg:#2f4a3a;--fg:#f1e6cf;--ac:#9cc3d5;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tiểu thuyết</span><span class="cover-title"><span>Phía</span> <span>Sau</span> <span>Mùa</span> <span>Gió</span></span><span class="cover-author">Lê Minh An</span></span></div>
+            <div class="cover cover--label" data-f="serif" style="--bg:#7b1e2c;--fg:#3a1017;--ac:#efe3c8;--ts:8.50cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Kỹ năng</span><span class="cover-title"><span>Bản</span> <span>Đồ</span> <span>Của</span> <span>Sự</span> <span>Tập</span> <span>Trung</span></span><span class="cover-author">Đỗ Quang Huy</span></span></div>
+            <div class="cover cover--sun" data-f="italic" style="--bg:#eadcc2;--fg:#2a211c;--ac:#c4553a;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tản văn</span><span class="cover-title"><span>Những</span> <span>Ngày</span> <span>Xanh</span></span><span class="cover-author">Thảo Nguyên</span></span></div>
+          </div>
+        </section>
+
+        <section aria-label="Số liệu chính" class="stat-grid">
+          <div class="stat">
+            <p class="stat-label">Doanh thu đã thu</p>
+            <p class="stat-value price">426.000&nbsp;₫</p>
+            <p class="stat-meta">Tháng 10&ndash;11/2026</p>
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+          </div>
+          <div class="stat stat--gold">
+            <p class="stat-label">Đơn cần xử lý</p>
+            <p class="stat-value">2</p>
+            <p class="stat-meta"><a href="orders.html?fulfillmentStatus=RECEIVED">Xem đơn mới</a></p>
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+          </div>
+          <div class="stat stat--sage">
+            <p class="stat-label">Sách đang bán</p>
+            <p class="stat-value">5<small class="fs-6 text-soft"> / 6</small></p>
+            <p class="stat-meta">1 bản nháp</p>
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg></span>
+          </div>
+          <div class="stat stat--ink">
+            <p class="stat-label">Khách đã đặt hàng</p>
+            <p class="stat-value">5</p>
+            <p class="stat-meta"><span class="up">+2</span> trong tuần này</p>
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg></span>
+          </div>
+        </section>
+
+        <div class="row g-4">
+          <div class="col-xl-8">
+            <section class="panel" aria-labelledby="recent-title">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title" id="recent-title">Đơn hàng gần đây</h2>
+                  <p class="panel-sub">5 đơn mới nhất</p>
+                </div>
+                <a class="link-arrow" href="orders.html">Tất cả đơn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="table-wrap">
+                <table class="table admin-table table-hover">
+                  <thead><tr><th scope="col">Mã đơn</th><th scope="col">Khách hàng</th><th scope="col" class="num">Tổng</th><th scope="col">Thanh toán</th><th scope="col">Giao vận</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><a class="mono" href="orders.html?q=order-2026-0007">order-2026-0007</a><span class="sub">04/11/2026 08:12</span></td>
+                      <td>Lê Thu Trang<span class="sub">0987654321</span></td>
+                      <td class="num price">245.000&nbsp;₫</td>
+                      <td><span class="pay-method">Trả trước</span><br><span class="status status--pending">Chờ thanh toán</span></td>
+                      <td><span class="status status--received">Đã tiếp nhận</span></td>
+                    </tr>
+                    <tr>
+                      <td><a class="mono" href="orders.html?q=order-2026-0006">order-2026-0006</a><span class="sub">03/11/2026 19:30</span></td>
+                      <td>Phạm Quốc Bảo<span class="sub">0938111222</span></td>
+                      <td class="num price">236.000&nbsp;₫</td>
+                      <td><span class="pay-method">COD</span><br><span class="status status--unpaid">Chưa thu</span></td>
+                      <td><span class="status status--confirmed">Đã xác nhận</span></td>
+                    </tr>
+                    <tr>
+                      <td><a class="mono" href="orders.html?q=order-2026-0005">order-2026-0005</a><span class="sub">03/11/2026 10:05</span></td>
+                      <td>Hoàng Gia Hân<span class="sub">0977333444</span></td>
+                      <td class="num price">142.000&nbsp;₫</td>
+                      <td><span class="pay-method">COD</span><br><span class="status status--unpaid">Chưa thu</span></td>
+                      <td><span class="status status--handed">Đã giao vận chuyển</span></td>
+                    </tr>
+                    <tr>
+                      <td><a class="mono" href="orders.html?q=order-2026-0003">order-2026-0003</a><span class="sub">02/11/2026 06:45</span></td>
+                      <td>Nguyễn Minh Anh<span class="sub">0901234567</span></td>
+                      <td class="num price">128.000&nbsp;₫</td>
+                      <td><span class="pay-method">COD</span><br><span class="status status--unpaid">Chưa thu</span></td>
+                      <td><span class="status status--received">Đã tiếp nhận</span></td>
+                    </tr>
+                    <tr>
+                      <td><a class="mono" href="orders.html?q=order-2026-0004">order-2026-0004</a><span class="sub">30/10/2026 21:18</span></td>
+                      <td>Trần Hoàng Nam<span class="sub">0912345678</span></td>
+                      <td class="num price">89.000&nbsp;₫</td>
+                      <td><span class="pay-method">Trả trước</span><br><span class="status status--failed">Thất bại</span></td>
+                      <td><span class="status status--cancelled">Đã hủy</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <div class="col-xl-4">
+            <section class="panel" aria-labelledby="fs-title">
+              <div class="panel-head"><h2 class="panel-title" id="fs-title">Đơn theo trạng thái</h2></div>
+              <div class="panel-body">
+                <ul class="status-bars">
+                  <li><a href="orders.html?fulfillmentStatus=RECEIVED">Đã tiếp nhận</a><span class="bar"><span style="width:100%"></span></span><span class="num">2</span></li>
+                  <li><a href="orders.html?fulfillmentStatus=CONFIRMED">Đã xác nhận</a><span class="bar"><span style="width:50%"></span></span><span class="num">1</span></li>
+                  <li><a href="orders.html?fulfillmentStatus=HANDED_TO_CARRIER">Đã giao vận chuyển</a><span class="bar"><span style="width:50%"></span></span><span class="num">1</span></li>
+                  <li><a href="orders.html?fulfillmentStatus=IN_TRANSIT">Đang giao</a><span class="bar"><span style="width:50%"></span></span><span class="num">1</span></li>
+                  <li><a href="orders.html?fulfillmentStatus=DELIVERED">Đã giao</a><span class="bar"><span style="width:50%"></span></span><span class="num">1</span></li>
+                  <li><a href="orders.html?fulfillmentStatus=CANCELLED">Đã hủy</a><span class="bar"><span style="width:50%"></span></span><span class="num">1</span></li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="panel" aria-labelledby="top-title">
+              <div class="panel-head"><h2 class="panel-title" id="top-title">Bán chạy</h2></div>
+              <div class="panel-body pt-2 pb-2">
+                <ol class="top-books">
+                  <li><div class="cover cover--waves" data-f="italic" style="--bg:#2f4a3a;--fg:#f1e6cf;--ac:#9cc3d5;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tiểu thuyết</span><span class="cover-title"><span>Phía</span> <span>Sau</span> <span>Mùa</span> <span>Gió</span></span><span class="cover-author">Lê Minh An</span></span></div><span class="t"><strong>Phía Sau Mùa Gió</strong><span>Lê Minh An</span></span><span class="n">2 cuốn</span></li>
+                  <li><div class="cover cover--tile" data-f="serif" style="--bg:#b8741a;--fg:#2a1d14;--ac:#8f5512;--ts:11.00cqi;--a2:#f4ead5;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Truyện ngắn</span><span class="cover-title"><span>Mùa</span> <span>Hạ</span> <span>Ở</span> <span>Hồ</span> <span>Tây</span></span><span class="cover-author">Vũ Khánh Linh</span></span></div><span class="t"><strong>Mùa Hạ Ở Hồ Tây</strong><span>Vũ Khánh Linh</span></span><span class="n">2 cuốn</span></li>
+                  <li><div class="cover cover--bigtype" data-f="black" style="--bg:#1c1a19;--fg:#f3ead8;--ac:#d7372f;--ts:11.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Kỹ năng</span><span class="cover-title"><span>Bắt</span> <span>Đầu</span> <span>Từ</span> <span>Những</span> <span>Thói</span> <span>Quen</span> <span>Nhỏ</span></span><span class="cover-author">Nguyễn An Bình</span></span></div><span class="t"><strong>Bắt Đầu Từ Những Thói Quen Nhỏ</strong><span>Nguyễn An Bình</span></span><span class="n">2 cuốn</span></li>
+                  <li><div class="cover cover--sun" data-f="italic" style="--bg:#eadcc2;--fg:#2a211c;--ac:#c4553a;--ts:13.00cqi;" aria-hidden="true"><span class="cover-art"></span><span class="cover-text"><span class="cover-kicker">Tản văn</span><span class="cover-title"><span>Những</span> <span>Ngày</span> <span>Xanh</span></span><span class="cover-author">Thảo Nguyên</span></span></div><span class="t"><strong>Những Ngày Xanh</strong><span>Thảo Nguyên</span></span><span class="n">2 cuốn</span></li>
+                </ol>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer class="admin-foot">
+        <p class="m-0">&copy; <span data-year>2026</span> Folio &amp; Fern Booksellers &middot; Trang quản trị</p>
+        <p class="m-0">Template gốc bởi <a href="https://uicookies.com/">uiCookies</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast-lite admin-toast" data-toast aria-hidden="true">
+    <div class="toast-text"><em data-toast-kicker>Đã lưu</em><strong data-toast-title></strong></div>
+  </div>
+  <div class="visually-hidden" aria-live="polite" data-live></div>
+
+  <script src="../customer/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

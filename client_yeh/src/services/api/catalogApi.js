@@ -167,7 +167,7 @@ export async function createBook(input) {
   const { data } = await http.post('/books', {
     id: `book-${slugify(body.title).slice(0, 40)}-${randomSuffix()}`,
     ...body,
-    imageUrl: '',
+    imageUrls: [],
     createdAt: timestamp,
     updatedAt: timestamp,
   });
