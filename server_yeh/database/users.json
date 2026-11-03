@@ -1,0 +1,64 @@
+[
+  {
+    "_id": "user-admin-001",
+    "fullName": "Quản trị Mộc Bản",
+    "email": "admin@mocban.test",
+    "phone": "0900000001",
+    "role": "ADMIN",
+    "defaultShippingAddress": null,
+    "isActive": true,
+    "passwordHash": "$2b$10$9xDnnJjCkar.ZyzsnZowRepWefZqh9Wi29wDOpRB2h9S..eo/pw3K",
+    "createdAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    }
+  },
+  {
+    "_id": "user-customer-001",
+    "fullName": "Nguyễn Minh Anh",
+    "email": "minhanh@example.test",
+    "phone": "0901234567",
+    "role": "CUSTOMER",
+    "defaultShippingAddress": {
+      "recipientName": "Nguyễn Minh Anh",
+      "phone": "0901234567",
+      "street": "25 Nguyễn Huệ",
+      "ward": "Phường Bến Nghé",
+      "district": "Quận 1",
+      "city": "Thành phố Hồ Chí Minh"
+    },
+    "isActive": true,
+    "passwordHash": "$2b$10$f2awHq7T6FFQ6mrtSfUywOpIlkfEm/YN0N5Y1kXZTMTPrR2hu9kCS",
+    "createdAt": {
+      "$date": "2026-10-05T09:30:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-20T14:15:00Z"
+    }
+  },
+  {
+    "_id": "user-customer-002",
+    "fullName": "Trần Hoàng Nam",
+    "email": "hoangnam@example.test",
+    "phone": "0912345678",
+    "role": "CUSTOMER",
+    "defaultShippingAddress": {
+      "recipientName": "Trần Hoàng Nam",
+      "phone": "0912345678",
+      "street": "18 Trần Phú",
+      "ward": "Phường Hải Châu 1",
+      "district": "Quận Hải Châu",
+      "city": "Đà Nẵng"
+    },
+    "isActive": true,
+    "passwordHash": "$2b$10$Lc2sy50CZ7FcZPBDzDqQE.peYcAwQ98e9/J21nZVaygdPSiVHjb66",
+    "createdAt": {
+      "$date": "2026-10-08T10:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-08T10:00:00Z"
+    }
+  }
+]

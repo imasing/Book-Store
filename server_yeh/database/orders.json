@@ -1,0 +1,156 @@
+[
+  {
+    "_id": "order-2026-0001",
+    "customerId": "user-customer-001",
+    "items": [
+      {
+        "bookId": "book-phia-sau-mua-gio",
+        "title": "Phía Sau Mùa Gió",
+        "author": "Lê Minh An",
+        "unitPrice": 156000,
+        "quantity": 1,
+        "lineTotal": 156000
+      },
+      {
+        "bookId": "book-nhung-ngay-xanh",
+        "title": "Những Ngày Xanh",
+        "author": "Thảo Nguyên",
+        "unitPrice": 128000,
+        "quantity": 1,
+        "lineTotal": 128000
+      }
+    ],
+    "shippingAddress": {
+      "recipientName": "Nguyễn Minh Anh",
+      "phone": "0901234567",
+      "street": "25 Nguyễn Huệ",
+      "ward": "Phường Bến Nghé",
+      "district": "Quận 1",
+      "city": "Thành phố Hồ Chí Minh"
+    },
+    "paymentMethod": "COD",
+    "paymentStatus": "PAID",
+    "fulfillmentStatus": "DELIVERED",
+    "subtotal": 284000,
+    "total": 284000,
+    "note": "",
+    "shippingFee": 0,
+    "statusHistory": [
+      {
+        "status": "RECEIVED",
+        "at": {
+          "$date": "2026-10-20T14:25:00Z"
+        },
+        "by": "user-customer-001"
+      },
+      {
+        "status": "DELIVERED",
+        "at": {
+          "$date": "2026-10-25T16:00:00Z"
+        },
+        "by": "user-admin-001"
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-10-20T14:25:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-25T16:00:00Z"
+    }
+  },
+  {
+    "_id": "order-2026-0002",
+    "customerId": "user-customer-002",
+    "items": [
+      {
+        "bookId": "book-thoi-quen-nho",
+        "title": "Bắt Đầu Từ Những Thói Quen Nhỏ",
+        "author": "Nguyễn An Bình",
+        "unitPrice": 142000,
+        "quantity": 1,
+        "lineTotal": 142000
+      }
+    ],
+    "shippingAddress": {
+      "recipientName": "Trần Hoàng Nam",
+      "phone": "0912345678",
+      "street": "18 Trần Phú",
+      "ward": "Phường Hải Châu 1",
+      "district": "Quận Hải Châu",
+      "city": "Đà Nẵng"
+    },
+    "paymentMethod": "PREPAID",
+    "paymentStatus": "PAID",
+    "fulfillmentStatus": "IN_TRANSIT",
+    "subtotal": 142000,
+    "total": 142000,
+    "note": "",
+    "shippingFee": 0,
+    "statusHistory": [
+      {
+        "status": "RECEIVED",
+        "at": {
+          "$date": "2026-10-28T11:40:00Z"
+        },
+        "by": "user-customer-002"
+      },
+      {
+        "status": "IN_TRANSIT",
+        "at": {
+          "$date": "2026-10-30T08:10:00Z"
+        },
+        "by": "user-admin-001"
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-10-28T11:40:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-30T08:10:00Z"
+    }
+  },
+  {
+    "_id": "order-2026-0003",
+    "customerId": "user-customer-001",
+    "items": [
+      {
+        "bookId": "book-nhung-ngay-xanh",
+        "title": "Những Ngày Xanh",
+        "author": "Thảo Nguyên",
+        "unitPrice": 128000,
+        "quantity": 1,
+        "lineTotal": 128000
+      }
+    ],
+    "shippingAddress": {
+      "recipientName": "Nguyễn Minh Anh",
+      "phone": "0901234567",
+      "street": "25 Nguyễn Huệ",
+      "ward": "Phường Bến Nghé",
+      "district": "Quận 1",
+      "city": "Thành phố Hồ Chí Minh"
+    },
+    "paymentMethod": "COD",
+    "paymentStatus": "UNPAID",
+    "fulfillmentStatus": "RECEIVED",
+    "subtotal": 128000,
+    "total": 128000,
+    "note": "",
+    "shippingFee": 0,
+    "statusHistory": [
+      {
+        "status": "RECEIVED",
+        "at": {
+          "$date": "2026-11-01T23:45:00Z"
+        },
+        "by": "user-customer-001"
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-01T23:45:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-01T23:45:00Z"
+    }
+  }
+]

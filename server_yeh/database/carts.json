@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "cart-customer-001",
+    "customerId": "user-customer-001",
+    "items": [
+      {
+        "bookId": "book-phia-sau-mua-gio",
+        "quantity": 1,
+        "addedAt": {
+          "$date": "2026-11-01T10:15:00Z"
+        }
+      },
+      {
+        "bookId": "book-nhung-ngay-xanh",
+        "quantity": 3,
+        "addedAt": {
+          "$date": "2026-11-01T10:18:00Z"
+        }
+      },
+      {
+        "bookId": "book-thoi-quen-nho",
+        "quantity": 1,
+        "addedAt": {
+          "$date": "2026-11-03T16:29:13.820Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-03T16:29:16.650Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-03T16:29:16.650Z"
+    }
+  },
+  {
+    "_id": "cart-customer-002",
+    "customerId": "user-customer-002",
+    "items": [
+      {
+        "bookId": "book-thoi-quen-nho",
+        "quantity": 1,
+        "addedAt": {
+          "$date": "2026-11-02T07:20:00Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-01T23:20:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-01T23:20:00Z"
+    }
+  }
+]

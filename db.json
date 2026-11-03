@@ -33,7 +33,9 @@
       "categoryId": "cat-van-hoc",
       "price": 156000,
       "stock": 20,
-      "imageUrl": "/images/phia-sau-mua-gio.jpg",
+      "imageUrls": [
+        "/images/phia-sau-mua-gio.jpg"
+      ],
       "isPublished": true,
       "createdAt": "2026-10-12T08:00:00.000Z",
       "updatedAt": "2026-10-12T08:00:00.000Z"
@@ -48,7 +50,9 @@
       "categoryId": "cat-van-hoc",
       "price": 128000,
       "stock": 15,
-      "imageUrl": "/images/nhung-ngay-xanh.jpg",
+      "imageUrls": [
+        "/images/nhung-ngay-xanh.jpg"
+      ],
       "isPublished": true,
       "createdAt": "2026-10-18T08:00:00.000Z",
       "updatedAt": "2026-10-18T08:00:00.000Z"
@@ -63,7 +67,9 @@
       "categoryId": "cat-ky-nang",
       "price": 142000,
       "stock": 12,
-      "imageUrl": "/images/thoi-quen-nho.jpg",
+      "imageUrls": [
+        "/images/thoi-quen-nho.jpg"
+      ],
       "isPublished": true,
       "createdAt": "2026-10-25T08:00:00.000Z",
       "updatedAt": "2026-10-25T08:00:00.000Z"
@@ -133,11 +139,16 @@
         },
         {
           "bookId": "book-nhung-ngay-xanh",
-          "quantity": 2,
+          "quantity": 3,
           "addedAt": "2026-11-01T10:18:00.000Z"
+        },
+        {
+          "bookId": "book-thoi-quen-nho",
+          "quantity": 1,
+          "addedAt": "2026-11-03T16:29:13.820Z"
         }
       ],
-      "updatedAt": "2026-11-01T10:18:00.000Z"
+      "updatedAt": "2026-11-03T16:29:16.650Z"
     },
     {
       "id": "cart-customer-002",

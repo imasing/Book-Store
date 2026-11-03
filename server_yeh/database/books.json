@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "book-phia-sau-mua-gio",
+    "title": "Phía Sau Mùa Gió",
+    "author": "Lê Minh An",
+    "publisher": "Mộc Bản",
+    "isbn": "9786043912345",
+    "description": "Một cuốn tiểu thuyết về ký ức, gia đình và những hành trình trở về.",
+    "categoryId": "cat-van-hoc",
+    "price": 156000,
+    "stock": 20,
+    "isPublished": true,
+    "imageUrls": [
+      "/images/phia-sau-mua-gio.jpg"
+    ],
+    "createdAt": {
+      "$date": "2026-10-12T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-12T08:00:00Z"
+    }
+  },
+  {
+    "_id": "book-nhung-ngay-xanh",
+    "title": "Những Ngày Xanh",
+    "author": "Thảo Nguyên",
+    "publisher": "Mộc Bản",
+    "isbn": "9786043912346",
+    "description": "Câu chuyện dịu dàng về tuổi trẻ, thiên nhiên và hành trình tìm lại chính mình.",
+    "categoryId": "cat-van-hoc",
+    "price": 128000,
+    "stock": 15,
+    "isPublished": true,
+    "imageUrls": [
+      "/images/nhung-ngay-xanh.jpg"
+    ],
+    "createdAt": {
+      "$date": "2026-10-18T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-18T08:00:00Z"
+    }
+  },
+  {
+    "_id": "book-thoi-quen-nho",
+    "title": "Bắt Đầu Từ Những Thói Quen Nhỏ",
+    "author": "Nguyễn An Bình",
+    "publisher": "Mộc Bản",
+    "isbn": "9786043912347",
+    "description": "Gợi ý thực tế để xây dựng những thay đổi tích cực từ các việc nhỏ mỗi ngày.",
+    "categoryId": "cat-ky-nang",
+    "price": 142000,
+    "stock": 12,
+    "isPublished": true,
+    "imageUrls": [
+      "/images/thoi-quen-nho.jpg"
+    ],
+    "createdAt": {
+      "$date": "2026-10-25T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-25T08:00:00Z"
+    }
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "cat-van-hoc",
+    "name": "Văn học Việt Nam",
+    "slug": "van-hoc-viet-nam",
+    "description": "Tiểu thuyết, truyện ngắn và tản văn của các tác giả Việt Nam.",
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    }
+  },
+  {
+    "_id": "cat-ky-nang",
+    "name": "Kỹ năng sống",
+    "slug": "ky-nang-song",
+    "description": "Sách về tư duy, thói quen và phát triển bản thân.",
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    }
+  },
+  {
+    "_id": "cat-thieu-nhi",
+    "name": "Thiếu nhi",
+    "slug": "thieu-nhi",
+    "description": "Những câu chuyện và kiến thức dành cho độc giả nhỏ tuổi.",
+    "isActive": true,
+    "createdAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    },
+    "updatedAt": {
+      "$date": "2026-10-01T08:00:00Z"
+    }
+  }
+]
