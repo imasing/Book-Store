@@ -1,8 +1,8 @@
 /**
  * Lưu phiên đăng nhập phía client.
  *
- * MOCK: token hiện là chuỗi giả `mock-token-<userId>`. Khi có server thật, khuyến nghị
- * dùng httpOnly cookie (khi đó file này chỉ còn cache thông tin user để render UI).
+ * Token là JWT do server cấp (login/register). Có thể chuyển sang httpOnly cookie để an toàn
+ * hơn trước XSS (khi đó file này chỉ còn cache thông tin user để render UI).
  */
 const SESSION_KEY = 'bookstore.session';
 

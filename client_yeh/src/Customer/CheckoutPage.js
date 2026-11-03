@@ -18,6 +18,10 @@ export default function CheckoutPage() {
   const { showToast } = useToast();
   const navigate = useNavigate();
   const placedRef = useRef(false);
+  // Một key cho mỗi lần vào trang checkout: gửi lại (mạng chập chờn, bấm 2 lần) không tạo trùng đơn.
+  const idempotencyKeyRef = useRef(
+    window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  );
 
   const [address, setAddress] = useState(() => ({
     ...emptyAddress(),
@@ -63,7 +67,10 @@ export default function CheckoutPage() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const order = await createOrder({ shippingAddress: address, paymentMethod, note, saveAsDefaultAddress: saveAsDefault });
+      const order = await createOrder(
+        { shippingAddress: address, paymentMethod, note, saveAsDefaultAddress: saveAsDefault },
+        { idempotencyKey: idempotencyKeyRef.current },
+      );
       placedRef.current = true;
       await Promise.all([refreshCart(), saveAsDefault ? refreshUser() : null]);
       showToast(`Đặt hàng thành công! Mã đơn ${order.id}.`);

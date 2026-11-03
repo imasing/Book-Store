@@ -1,15 +1,14 @@
 import axios from 'axios';
-import { getSession } from '../session';
+import { clearSession, getSession } from '../session';
 
 /**
- * HTTP client dùng chung cho toàn bộ service.
- *
- * Hiện tại baseURL trỏ vào json-server (DB tạm: ../db.json, chạy bằng `npm run mock-api`).
- * Khi có Express server: đặt REACT_APP_API_URL=http://localhost:8888/api và thay phần
- * "MOCK" trong từng service bằng một lời gọi duy nhất tới endpoint tương ứng
- * (xem APIContract.md ở root).
+ * HTTP client dùng chung cho toàn bộ service – gọi Express API (server_yeh).
+ * Cấu hình bằng REACT_APP_API_URL (xem client_yeh/.env.example).
  */
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:9999';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:9999/api';
+
+/** Phát ra khi server báo phiên đăng nhập không còn hiệu lực (AuthContext lắng nghe). */
+export const SESSION_EXPIRED_EVENT = 'bookstore:session-expired';
 
 export class ApiError extends Error {
   constructor(status, code, message, details) {
@@ -40,14 +39,19 @@ http.interceptors.response.use(
   error => {
     if (error.response) {
       const { status, data } = error.response;
-      // Format lỗi chuẩn mà server cần trả về: { error: { code, message, details } }
+      // Format lỗi của server: { error: { code, message, details } } (APIContract §1.1)
       const payload = data?.error || {};
-      return Promise.reject(new ApiError(
+      const apiError = new ApiError(
         status,
         payload.code || (status === 404 ? 'NOT_FOUND' : 'HTTP_ERROR'),
         payload.message || 'Yêu cầu không thành công.',
         payload.details,
-      ));
+      );
+      if (status === 401 && apiError.code === 'UNAUTHENTICATED' && getSession()) {
+        clearSession();
+        window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT));
+      }
+      return Promise.reject(apiError);
     }
     return Promise.reject(new ApiError(0, 'NETWORK_ERROR', 'Không kết nối được máy chủ. Hãy kiểm tra API đang chạy.'));
   },

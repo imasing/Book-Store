@@ -186,7 +186,7 @@ function normalizeBookInput(input) {
 }
 
 /* ================================================================== */
-/* 4. Mongoose models (_id dạng string để giữ nguyên id của db.json)    */
+/* 4. Mongoose models (_id dạng string, vd: book-..., order-2026-0001) */
 /* ================================================================== */
 
 const { Schema } = mongoose;
@@ -295,7 +295,7 @@ const counterSchema = new Schema({
   seq: { type: Number, default: 0 },
 }, { versionKey: false });
 
-// Tên collection khớp với key trong db.json / file export.
+// Tên collection khớp với file seed trong server_yeh/database/*.json
 const User = mongoose.model('User', userSchema, 'users');
 const Category = mongoose.model('Category', categorySchema, 'categories');
 const Book = mongoose.model('Book', bookSchema, 'books');

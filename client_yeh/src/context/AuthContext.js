@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import * as authApi from '../services/api/authApi';
 import { updateMyProfile } from '../services/api/userApi';
-import { getSession, clearSession } from '../services/session';
+import { getSession } from '../services/session';
+import { SESSION_EXPIRED_EVENT } from '../services/api/httpClient';
 
 const AuthContext = createContext(null);
 
@@ -17,13 +18,18 @@ export function AuthProvider({ children }) {
       .then(fresh => { if (!cancelled) setUser(fresh); })
       .catch(error => {
         if (cancelled) return;
-        if (error.status === 401) {
-          clearSession();
-          setUser(null);
-        }
+        // 401: httpClient đã xóa session; lỗi mạng: giữ user đã cache để thử lại sau.
+        if (error.status === 401) setUser(null);
       })
       .finally(() => { if (!cancelled) setInitializing(false); });
     return () => { cancelled = true; };
+  }, []);
+
+  // Token hết hạn/bị thu hồi giữa chừng -> đưa UI về trạng thái chưa đăng nhập.
+  useEffect(() => {
+    const handleExpired = () => setUser(null);
+    window.addEventListener(SESSION_EXPIRED_EVENT, handleExpired);
+    return () => window.removeEventListener(SESSION_EXPIRED_EVENT, handleExpired);
   }, []);
 
   const login = useCallback(async credentials => {
