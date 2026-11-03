@@ -1,8 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import StoreLayout from "./components/StoreLayout";
+import RequireAuth from "./components/RequireAuth";
 import BookDetail from "./Customer/BookDetail";
 import CartPage from "./Customer/CartPage";
+import CheckoutPage from "./Customer/CheckoutPage";
 import OrderHistory from "./Customer/OrderHistory";
+import AuthPage from "./Customer/AuthPage";
 import AdminDashboard from "./Admin/AdminLayout";
 import BookManager from "./Admin/BookManager";
 import CategoryManager from "./Admin/CategoryManager";
@@ -15,10 +18,15 @@ export default function App() {
       <Route element={<StoreLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/books/:bookId" element={<BookDetail />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/orders" element={<OrderHistory />} />
+        <Route path="/login" element={<AuthPage mode="login" />} />
+        <Route path="/register" element={<AuthPage mode="register" />} />
+        <Route element={<RequireAuth role="CUSTOMER" />}>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/orders" element={<OrderHistory />} />
+        </Route>
       </Route>
-      <Route path="/admin" element={<AdminDashboard />}>
+      <Route path="/admin" element={<RequireAuth role="ADMIN"><AdminDashboard /></RequireAuth>}>
         <Route index element={<Navigate to="books" replace />} />
         <Route path="books" element={<BookManager />} />
         <Route path="categories" element={<CategoryManager />} />

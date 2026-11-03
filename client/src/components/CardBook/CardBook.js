@@ -1,10 +1,15 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
+import { useAddToCart } from '../../context/CartContext';
+import { formatCurrency } from '../../utils/format';
 
 function CardBook({ book }) {
+  const { addToCart, isAdding } = useAddToCart();
   const bookTitle = book.title || book.name;
+  const adding = isAdding(book.id);
+
   return (
     <article className="book-card">
       <Link to={`/books/${book.id}`} className="book-cover-link" aria-label={`Xem ${bookTitle}`}>
@@ -19,9 +24,15 @@ function CardBook({ book }) {
         <h3><Link to={`/books/${book.id}`}>{bookTitle}</Link></h3>
         <p className="book-author">{book.author}</p>
         <div className="book-card-footer">
-          <strong>{book.price.toLocaleString('vi-VN')}₫</strong>
-          <Button variant="outline-success" size="sm" aria-label={`Thêm ${bookTitle} vào giỏ`}>
-            <ShoppingBag size={16} />
+          <strong>{formatCurrency(book.price)}</strong>
+          <Button
+            variant="outline-success"
+            size="sm"
+            aria-label={`Thêm ${bookTitle} vào giỏ`}
+            disabled={adding}
+            onClick={() => addToCart(book)}
+          >
+            {adding ? <Spinner animation="border" size="sm" /> : <ShoppingBag size={16} />}
           </Button>
         </div>
       </div>

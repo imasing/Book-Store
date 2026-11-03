@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
+
+:root {
+  --font-customer: "Be Vietnam Pro", sans-serif;
+  --font-heading: "Lora", serif;
+}
+
 body, html, #root {
   margin: 0;
   padding: 0;
@@ -6,7 +14,7 @@ body, html, #root {
 body {
   color: #26332c;
   background: #fffefa;
-  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-family: var(--font-customer);
 }
 
 button, input, select, textarea {
@@ -47,7 +55,7 @@ button, input, select, textarea {
 .detail-copy h1 {
   margin: 0;
   color: #26332c;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4vw, 4.1rem);
   font-weight: 500;
   line-height: 1.08;
@@ -123,7 +131,7 @@ button, input, select, textarea {
 }
 
 .hero-book strong {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-customer);
   font-size: 1.65rem;
   font-weight: 500;
   line-height: 1.05;
@@ -180,7 +188,7 @@ button, input, select, textarea {
 .summary-panel h2 {
   margin: 0;
   color: #26332c;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 500;
 }
@@ -370,6 +378,43 @@ button, input, select, textarea {
 .category-editor h2 { margin-bottom: 20px; }
 .order-toolbar > .form-control { max-width: 360px; }
 
+
+/* ---- Interactive states (logic layer) ---- */
+.category-row { width: 100%; background: none; border-width: 0 0 1px; text-align: left; cursor: pointer; }
+.category-row:hover, .category-row.active { color: #18745c; }
+.category-row.active { font-weight: 700; }
+.state-box { padding: 28px 20px; color: #727d73; background: #f5f5ef; border-radius: 5px; font-size: 0.9rem; }
+.account-toggle { display: inline-flex; align-items: center; gap: 6px; }
+.account-email { color: #7b847a; font-size: 0.8rem; }
+.app-toasts { position: fixed; z-index: 1080; }
+.detail-actions { display: flex; align-items: center; gap: 10px; margin: 12px 0 30px; }
+.detail-actions .detail-add-button { margin: 0; }
+.detail-quantity { width: 80px; }
+.cart-item-info h2 a { color: inherit; text-decoration: none; }
+.cart-item-unavailable { opacity: 0.75; }
+.customer-order-new { border-color: #3e9976; box-shadow: 0 0 0 2px rgba(62, 153, 118, 0.15); }
+.customer-order-address { margin: -6px 0 14px; color: #788177; font-size: 0.8rem; }
+.checkout-section { margin-bottom: 18px; padding: 22px; background: #fff; border: 1px solid #e6e8e0; border-radius: 5px; }
+.checkout-section h2 { margin-bottom: 16px; font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; }
+.checkout-section .form-label { color: #58645a; font-size: 0.8rem; font-weight: 700; }
+.payment-option { padding: 10px 0 10px 2rem; border-bottom: 1px solid #ecece5; }
+.checkout-items { display: grid; gap: 8px; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 1px solid #dfe2d9; font-size: 0.84rem; }
+.checkout-items div { display: flex; justify-content: space-between; gap: 12px; }
+.checkout-items small { color: #7b847a; }
+.auth-card { max-width: 440px; margin: 0 auto; padding: 32px; background: #fff; border: 1px solid #e6e8e0; border-radius: 5px; }
+.auth-card .page-title { margin-bottom: 18px; }
+.auth-card .form-label { color: #58645a; font-size: 0.8rem; font-weight: 700; }
+.auth-switch { margin: 18px 0 0; color: #727d73; font-size: 0.86rem; text-align: center; }
+.status-draft { display: inline-flex; align-items: center; gap: 7px; color: #8a7a5c; white-space: nowrap; }
+.status-draft::before { content: ''; display: inline-block; width: 7px; height: 7px; background: #c9a85a; border-radius: 50%; }
+.status-toggle { padding: 0; background: none; border: 0; cursor: pointer; }
+.status-toggle:hover { text-decoration: underline; }
+.order-id-toggle { padding: 0; color: inherit; background: none; border: 0; text-align: left; cursor: pointer; }
+.order-id-toggle small { color: #18745c !important; }
+.order-detail-row td { background: #fafaf6; }
+.order-detail { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; }
+.order-detail-line { display: flex; justify-content: space-between; gap: 16px; padding: 4px 0; }
+@media (max-width: 767.98px) { .order-detail { grid-template-columns: 1fr; } }
 @media (max-width: 767.98px) {
   .store-hero { grid-template-columns: 1fr; margin-top: 0; }
   .hero-copy { padding: 38px 26px; }

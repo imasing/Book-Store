@@ -74,6 +74,7 @@
       "id": "user-admin-001",
       "fullName": "Quản trị Mộc Bản",
       "email": "admin@mocban.test",
+      "password": "admin123",
       "phone": "0900000001",
       "role": "ADMIN",
       "defaultShippingAddress": null,
@@ -85,6 +86,7 @@
       "id": "user-customer-001",
       "fullName": "Nguyễn Minh Anh",
       "email": "minhanh@example.test",
+      "password": "123456",
       "phone": "0901234567",
       "role": "CUSTOMER",
       "defaultShippingAddress": {
@@ -103,6 +105,7 @@
       "id": "user-customer-002",
       "fullName": "Trần Hoàng Nam",
       "email": "hoangnam@example.test",
+      "password": "123456",
       "phone": "0912345678",
       "role": "CUSTOMER",
       "defaultShippingAddress": {

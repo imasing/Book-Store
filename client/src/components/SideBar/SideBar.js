@@ -1,16 +1,23 @@
 import React from 'react';
-import { CATEGORIES } from '../../data/bookstoreData';
 
-function SideBar() {
+function SideBar({ categories = [], totalCount = 0, selectedId = 'all', onSelect = () => {} }) {
+  const rows = [{ id: 'all', name: 'Tất cả sách', bookCount: totalCount }, ...categories];
+
   return (
     <aside className="catalog-sidebar">
       <p className="eyebrow mb-3">Danh mục</p>
       <div className="category-list">
-        {CATEGORIES.map(category => (
-          <div className="category-row" key={category.id}>
+        {rows.map(category => (
+          <button
+            type="button"
+            className={`category-row${selectedId === category.id ? ' active' : ''}`}
+            key={category.id}
+            onClick={() => onSelect(category.id)}
+            aria-pressed={selectedId === category.id}
+          >
             <span>{category.name}</span>
             <span className="category-count">{category.bookCount}</span>
-          </div>
+          </button>
         ))}
       </div>
       <div className="sidebar-note">
